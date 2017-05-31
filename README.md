@@ -56,8 +56,49 @@ PostRepository.enable_pagination!
 ```
 
 ## Usage
-TODO: Write usage instructions here
+Now you have special methods for working with pagination in your app.
 
+### Action
+#### `all_for_page`
+This helper takes rom/hanami relation and sets `pager` expose. Returns array. Example:
+
+```ruby
+module Web::Controllers::Books
+  class Index
+    include Web::Action
+    include Hanami::Pagination::Action
+
+    expose :books
+
+    def call(params)
+      repo = BookRepository.new
+      @drugs = all_for_page(repo.all)
+    end
+  end
+end
+```
+
+Also you can set `limit` (default 100) for each action:
+
+```ruby
+module Web::Controllers::Books
+  class Index
+    include Web::Action
+    include Hanami::Pagination::Action
+
+    expose :books
+
+    def call(params)
+      repo = BookRepository.new
+      @drugs = all_for_page(repo.all)
+    end
+
+    def limit
+      25
+    end
+  end
+end
+```
 
 ## License
 
