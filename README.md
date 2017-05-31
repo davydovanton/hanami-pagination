@@ -72,7 +72,7 @@ module Web::Controllers::Books
 
     def call(params)
       repo = BookRepository.new
-      @drugs = all_for_page(repo.all)
+      @books = all_for_page(repo.all)
     end
   end
 end
@@ -90,7 +90,7 @@ module Web::Controllers::Books
 
     def call(params)
       repo = BookRepository.new
-      @drugs = all_for_page(repo.all)
+      @books = all_for_page(repo.all)
     end
 
     def limit
@@ -114,7 +114,7 @@ When you include `Pagination::Action` to your action you get `pager` getter with
 - `last_page?`
 
 
-## #View
+### View
 #### `next_page_url`
 Returns string with url to next page. Example:
 
