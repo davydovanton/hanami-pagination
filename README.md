@@ -100,7 +100,21 @@ module Web::Controllers::Books
 end
 ```
 
-### View
+#### `pager` expose
+When you include `Pagination::Action` to your action you get `pager` getter with `Hanami::Pagination::Pager` instance. Please check source code for this class. In future I'll add full documentation. Now we support this methods:
+
+- `next_page`
+- `prev_page`
+- `total`
+- `next_page`
+- `current_page?`
+- `pages_range`
+- `all_pages`
+- `first_page?`
+- `last_page?`
+
+
+## #View
 #### `next_page_url`
 Returns string with url to next page. Example:
 
