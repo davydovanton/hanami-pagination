@@ -1,8 +1,5 @@
 # Hanami::Pagination
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hanami/pagination`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Pagination gem for your hanami applications
 
 ## Installation
 
@@ -20,19 +17,46 @@ Or install it yourself as:
 
     $ gem install hanami-pagination
 
+Include pagination helpers to view and action:
+
+```ruby
+# in action
+module Web::Controllers::Books
+  class Index
+    include Web::Action
+
+    # include Pagination::Action module
+    include Hanami::Pagination::Action
+
+    def call(params)
+      ...
+    end
+  end
+end
+```
+
+```ruby
+# in view
+module Web::Views::Books
+  class Index
+    include Web::View
+
+    # include Pagination::View module
+    include Hanami::Pagination::View
+  end
+end
+```
+
+After that you need to enable pagination for each repository class:
+```ruby
+# in config/initializers/enable_pagination.rb
+BookRepository.enable_pagination!
+PostRepository.enable_pagination!
+# etc
+```
+
 ## Usage
-
 TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hanami-pagination. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
