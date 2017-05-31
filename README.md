@@ -100,6 +100,28 @@ module Web::Controllers::Books
 end
 ```
 
+### View
+#### `next_page_url`
+Returns string with url to next page. Example:
+
+```ruby
+next_page_url # => '/books?page=3'
+```
+
+#### `prev_page_url`
+Returns string with url to prev page. Example:
+
+```ruby
+prev_page_url # => '/books?page=1'
+```
+
+#### `page_url(page)`
+Returns string with url to specific page. Example:
+
+```ruby
+page_url(4) # => '/books?page=4'
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
