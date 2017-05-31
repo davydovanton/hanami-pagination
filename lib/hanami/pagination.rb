@@ -1,3 +1,4 @@
+require "hanami/pagination/view"
 require "hanami/pagination/pager"
 require "hanami/pagination/version"
 
