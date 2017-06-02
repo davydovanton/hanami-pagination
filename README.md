@@ -1,5 +1,5 @@
 # Hanami::Pagination
-Pagination gem for your hanami applications
+Pagination gem for your hanami applications. Based on ROM::Pagination plugin.
 
 ## Installation
 
@@ -24,12 +24,10 @@ Include pagination helpers to view and action:
 module Web::Controllers::Books
   class Index
     include Web::Action
-
-    # include Pagination::Action module
     include Hanami::Pagination::Action
 
     def call(params)
-      ...
+      # ...
     end
   end
 end
@@ -40,8 +38,6 @@ end
 module Web::Views::Books
   class Index
     include Web::View
-
-    # include Pagination::View module
     include Hanami::Pagination::View
   end
 end
@@ -106,7 +102,6 @@ When you include `Pagination::Action` to your action you get `pager` getter with
 - `next_page`
 - `prev_page`
 - `total`
-- `next_page`
 - `current_page?`
 - `pages_range`
 - `all_pages`
