@@ -1,12 +1,12 @@
 RSpec.describe Hanami::Pagination::Pager do
-  let(:mock_pager) { PagerMock.new(current_page, total_pages) }
+  let(:mock_pager) { Hanami::Pagination::MockPager.new(current_page, total_pages) }
   let(:current_page) { 1 }
   let(:total_pages) { 10 }
 
   let(:pager) { Hanami::Pagination::Pager.new(mock_pager) }
 
   describe '#pager' do
-    it { expect(pager.pager).to be_a PagerMock }
+    it { expect(pager.pager).to be_a Hanami::Pagination::MockPager }
   end
 
   describe '#next_page' do
