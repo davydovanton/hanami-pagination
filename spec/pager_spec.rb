@@ -31,6 +31,10 @@ RSpec.describe Hanami::Pagination::Pager do
     it { expect(pager.total).to eq 10 }
   end
 
+  describe '#total_pages' do
+    it { expect(pager.total_pages).to eq 10 }
+  end
+
   describe '#current_page?' do
     it { expect(pager.current_page?(1)).to eq true }
     it { expect(pager.current_page?(2)).to eq false }

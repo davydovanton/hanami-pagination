@@ -19,6 +19,10 @@ module Hanami
         pager.total
       end
 
+      def total_pages
+        pager.total_pages
+      end
+
       def current_page?(page)
         pager.current_page == page
       end

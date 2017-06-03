@@ -17,4 +17,8 @@ class PagerMock
   def total
     total_pages
   end
+
+  def total_pages
+    @total_pages
+  end
 end

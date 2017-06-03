@@ -102,6 +102,7 @@ When you include `Pagination::Action` to your action you get `pager` getter with
 - `next_page`
 - `prev_page`
 - `total`
+- `total_pages`
 - `current_page?`
 - `pages_range`
 - `all_pages`
