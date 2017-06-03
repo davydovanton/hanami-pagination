@@ -132,6 +132,24 @@ Returns string with url to specific page. Example:
 page_url(4) # => '/books?page=4'
 ```
 
+### Testing
+
+You can use `Hanami::Pagination::MockPager` class for testing you apps.
+
+#### View testing
+```ruby
+RSpec.describe Web::Views::Books::Show do
+  let(:mock_pager) { Hanami::Pagination::MockPager.new(current_page, total_pages) }
+  let(:pager) { Hanami::Pagination::Pager.new(mock_pager) }
+  let(:exposures) { Hash[pager: pager] }
+
+  let(:current_page) { 1 }
+  let(:total_pages) { 10 }
+
+  # ...
+end
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
