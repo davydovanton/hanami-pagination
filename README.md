@@ -56,7 +56,7 @@ Now you have special methods for working with pagination in your app.
 
 ### Action
 #### `all_for_page`
-This helper takes rom/hanami relation and sets `pager` expose. Returns array. Example:
+This helper takes **only rom/hanami relation** and sets `pager` expose. Returns array. Example:
 
 ```ruby
 module Web::Controllers::Books
@@ -68,7 +68,7 @@ module Web::Controllers::Books
 
     def call(params)
       repo = BookRepository.new
-      @books = all_for_page(repo.all)
+      @books = all_for_page(repo.books)
     end
   end
 end
@@ -86,7 +86,7 @@ module Web::Controllers::Books
 
     def call(params)
       repo = BookRepository.new
-      @books = all_for_page(repo.all)
+      @books = all_for_page(repo.books)
     end
 
     def limit
