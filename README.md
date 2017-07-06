@@ -135,6 +135,15 @@ Returns string with url to specific page. Example:
 page_url(4) # => '/books?page=4'
 ```
 
+#### `previous_page_path`
+TODO
+
+#### `next_page_path`
+TODO
+
+#### `n_page_path`
+TODO
+
 ### Testing
 
 You can use `Hanami::Pagination::MockPager` class for testing you apps.
