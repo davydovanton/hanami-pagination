@@ -108,6 +108,9 @@ When you include `Pagination::Action` to your action you get `pager` getter with
 - `all_pages`
 - `first_page?`
 - `last_page?`
+- `previous_page_path`
+- `next_page_path`
+- `n_page_path`
 
 
 ### View
