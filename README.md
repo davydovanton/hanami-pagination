@@ -135,14 +135,31 @@ Returns string with url to specific page. Example:
 page_url(4) # => '/books?page=4'
 ```
 
-#### `previous_page_path`
-TODO
+#### `previous_page_path(page)`
+Returns string with `page` path and current `params` to prev page. Example:
 
-#### `next_page_path`
-TODO
+```ruby
+# params => { status: 'active' }
+# pager.current_page?(2) => true
+previous_page_path(:books) # => '/books?status=active&page=1'
+```
 
-#### `n_page_path`
-TODO
+#### `next_page_path(page)`
+Returns string with `page` path and current `params` to next page. Example:
+
+```ruby
+# params => { status: 'inactive' }
+# pager.current_page?(1) => true
+previous_page_path(:users) # => '/books?status=inactive&page=2'
+```
+
+#### `n_page_path(page, n)`
+Returns string with `page` path and current `params` to specific page. Example:
+
+```ruby
+# params => { status: 'active' }
+previous_page_path(:books, 10) # => '/books?status=active&page=10'
+```
 
 ### Testing
 
