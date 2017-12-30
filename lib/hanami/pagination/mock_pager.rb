@@ -23,6 +23,14 @@ module Hanami
       def total_pages
         @total_pages
       end
+
+      def first_page?
+        current_page == 1
+      end
+
+      def last_page?
+        current_page == total_pages
+      end
     end
   end
 end

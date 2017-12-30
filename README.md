@@ -111,9 +111,49 @@ When you include `Pagination::Action` to your action you get `pager` getter with
 - `previous_page_path`
 - `next_page_path`
 - `n_page_path`
+- `paginate`
 
 
 ### View
+
+#### `paginate(page)`
+
+Returns `<nav>` tag with links to first, last and closest pages. For example:
+
+```ruby
+paginate(:items) # where `:items` is a named route
+```
+
+when there is 11 pages, will returns:
+
+```html
+<nav class="pagination">
+  <a href="/items?page=1" class="pagination-first-page">
+    1
+  </a>
+  <span class="pagination-ellipsis">
+    ...
+  </span>
+  <a href="/items?page=4" class="pagination-previous-page">
+    4
+  </a>
+  <span class="pagination-current-page">
+    5
+  </span>
+  <a href="/items?page=6" class="pagination-next-page">
+    6
+  </a>
+  <span class="pagination-ellipsis">
+    ...
+  </span>
+  <a href="/items?page=11" class="pagination-last-page">
+    11
+  </a>
+</nav>
+
+```
+Every elements has special css-classes, so it is easy to change pagination look.
+
 #### `next_page_url`
 Returns string with url to next page. Example:
 
@@ -182,4 +222,3 @@ end
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
