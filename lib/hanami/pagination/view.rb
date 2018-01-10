@@ -33,20 +33,20 @@ module Hanami
         html.nav(class: 'pagination') do
           content = []
 
-          content << first_page_tag unless pager.first_page?
+          content << first_page_tag(page) unless pager.first_page?
           content << ellipsis_tag if pager.current_page > 3
           content << previous_page_tag(page) if pager.current_page > 2
           content << current_page_tag
           content << next_page_tag(page) if (pager.total_pages - pager.current_page) > 1
           content << ellipsis_tag if (pager.total_pages - pager.current_page) > 3
-          content << last_page_tag unless pager.last_page?
+          content << last_page_tag(page) unless pager.last_page?
 
           raw(content.map(&:to_s).join)
         end
       end
 
-      def first_page_tag
-        html.a(href: page_url(1), class: 'pagination-first-page') do
+      def first_page_tag(page)
+        html.a(href: n_page_path(page, 1), class: 'pagination-first-page') do
           '1'
         end
       end
@@ -63,8 +63,8 @@ module Hanami
         end
       end
 
-      def last_page_tag
-        html.a(href: page_url(pager.total_pages), class: 'pagination-last-page') do
+      def last_page_tag(page)
+        html.a(href: n_page_path(page, pager.total_pages), class: 'pagination-last-page') do
           pager.total_pages
         end
       end
