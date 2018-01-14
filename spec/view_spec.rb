@@ -137,10 +137,10 @@ RSpec.describe Hanami::Pagination::View do
     end
 
     describe '#first_page_tag' do
-      let(:html) { view.first_page_tag.to_s }
+      let(:html) { view.first_page_tag(:books).to_s }
 
       it { expect(html).to include '<a ' }
-      it { expect(html).to include 'href="/books?page=1"' }
+      it { expect(html).to include 'href="/books?country=rus&page=1"' }
       it { expect(html).to include 'class="pagination-first-page"' }
       it { expect(html).to include '1' }
       it { expect(html).to include '</a>' }
@@ -166,10 +166,10 @@ RSpec.describe Hanami::Pagination::View do
     end
 
     describe '#last_page_tag' do
-      let(:html) { view.last_page_tag.to_s }
+      let(:html) { view.last_page_tag(:books).to_s }
 
       it { expect(html).to include '<a ' }
-      it { expect(html).to include 'href="/books?page=10"' }
+      it { expect(html).to include 'href="/books?country=rus&page=10"' }
       it { expect(html).to include 'class="pagination-last-page"' }
       it { expect(html).to include '10' }
       it { expect(html).to include '</a>' }
