@@ -29,6 +29,11 @@ RSpec.describe Hanami::Pagination::Pager do
 
   describe '#total' do
     it { expect(pager.total).to eq 10 }
+
+    it 'touches pager total method only once' do
+      expect(mock_pager).to receive(:total).exactly(1).and_return(10)
+      3.times { pager.total }
+    end
   end
 
   describe '#total_pages' do
