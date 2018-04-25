@@ -85,5 +85,12 @@ RSpec.describe Hanami::Pagination::Pager do
       let(:current_page) { 10 }
       it { expect(pager.last_page?).to eq true }
     end
+
+    context 'with zero elements' do
+      let(:current_page) { 1 }
+      let(:total_pages) { 0 }
+
+      it { expect(pager.last_page?).to eq true }
+    end
   end
 end

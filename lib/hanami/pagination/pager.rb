@@ -50,7 +50,7 @@ module Hanami
       end
 
       def last_page?
-        pager.current_page == pager.total_pages
+        pager.total < 1 || pager.current_page == pager.total_pages
       end
     end
   end
