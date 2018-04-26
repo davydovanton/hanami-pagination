@@ -29,6 +29,11 @@ RSpec.describe Hanami::Pagination::Pager do
 
   describe '#total' do
     it { expect(pager.total).to eq 10 }
+
+    it 'touches pager total method only once' do
+      expect(mock_pager).to receive(:total).exactly(1).and_return(10)
+      3.times { pager.total }
+    end
   end
 
   describe '#total_pages' do
@@ -83,6 +88,13 @@ RSpec.describe Hanami::Pagination::Pager do
 
     context 'on other page' do
       let(:current_page) { 10 }
+      it { expect(pager.last_page?).to eq true }
+    end
+
+    context 'with zero elements' do
+      let(:current_page) { 1 }
+      let(:total_pages) { 0 }
+
       it { expect(pager.last_page?).to eq true }
     end
   end
